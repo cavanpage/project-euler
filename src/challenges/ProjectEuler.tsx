@@ -276,6 +276,20 @@ const getLargestProductInAGrid = (input: string[], height: number, width: number
     return maxProduct;
 }
 
+const getPowerDigitSum = (base:number, pow: number): number =>{
+    let result = BigInt(Math.pow(base, pow));
+    let sum = 0;
+
+    let resultString = result.toString();
+    
+    for(let i =0; i < resultString.length; i++){
+        console.log(parseInt(resultString[i]));
+        sum += Number(resultString[i]);
+    }
+
+    return sum;
+}
+
 let codeHeader: string = `
     /**
       "Project Euler exists to encourage, challenge, and develop the skills and enjoyment 
@@ -371,6 +385,10 @@ export function ProjectEuler() {
                             01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
                         The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
                         What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+                    </Problem>
+                    <Problem answer={getPowerDigitSum(2, 1000)} number={16} code={getPowerDigitSum}>
+                        2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+                        What is the sum of the digits of the number 2^1000? 
                     </Problem>
                 </Grid> 
             </Container>
